@@ -2,24 +2,12 @@
 # 입력을 받기위한 input 함수는 절대 사용하지 않습니다.
 
 def find_second_largest(numbers):
-    # 1단계: 제일 큰 수(1등) 찾기
-    first_max = numbers[0]
-    for num in numbers:
-        if num > first_max:
-            first_max = num
-            
-    # 2단계: 1등이 아닌 수 중에서 제일 큰 수(2등) 찾기
-    # 초기값은 아주 작은 수로 설정하거나 리스트의 첫 값으로 비교 시작
-    second_max = -9999999999 
-    
-    for num in numbers:
-        # 1등 숫자가 아니어야 함 (중복 제외 효과)
-        if num != first_max:
-            # 현재 알고 있는 2등보다 크면 갱신
-            if num > second_max:
-                second_max = num
-                
-    return second_max
+    # set로 증복 제거에만 써먹어버리고 list로 다시 변신시켜서
+    # 순서 index 만들어서 정렬하고 값 꺼내주기 ㅋㅋ
+    onlyone_number = list(set(numbers))
+    onlyone_number.sort(reverse=True)
+    # 두 번째로 큰 값을 반환한다 => index [1] 을 의미
+    return onlyone_number[1]
 
 
 # 추가 테스트를 위한 코드 작성 가능

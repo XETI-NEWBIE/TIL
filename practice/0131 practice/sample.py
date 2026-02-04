@@ -396,3 +396,133 @@ else:
 #     pivot.append(num)
 # # num에서 추가하고 계산된 값을 pivot에 넣어 출력한다
 # print(*pivot)
+
+''''''
+
+# first, second=map(str, input().split())
+# # first, second <= 20
+# if len(first) > len(second):
+#     print(first, len(first))
+# elif len(first)  < len(second):
+#     print(second, len(second))
+# else:
+#     print("same")
+
+''''''
+
+
+# text = str(input())
+# sentence_1 = text[1].replace(text[1], "a", 1)
+# sentence_2 = text[-2].replace(text[-2], "a", 1)
+
+# print(sentence_1, sentence_2)
+
+# text= str(input())
+
+# sentence = (text[1].replace(text[1],'a',1))+(text[-2].replace(text[-2],'a',1))
+
+''''''
+# text = str[input().split()]
+# new_text = text.replace((text[1], text[-2]), 'a', 1)
+# print(new_text)
+
+# text = str(input().split())
+# new_text = text.replace((text[1], text[-2]), 'a', 1)
+# print(new_text)
+
+''''''
+
+# text = input()
+# new_text = list(text)
+
+# new_text[1]='a'
+# new_text[-2]='a'
+
+# print(*new_text, sep="")
+
+''''''
+
+# N = int(input())
+
+# for num in range(N,101,1):
+#     if N >= 90:
+#         print("A")
+#     elif N >= 80:
+#         print("B")
+#     elif N >= 70:
+#         print("C")
+#     elif N>=60:
+#         print("D")
+#     else: 
+#         print("F")
+
+# print(num, sep=" ", end=" ")
+
+''''''
+
+# scores = list(map(int, input().split()))
+# for num in scores:
+#     if num>=90:
+#      	print("A")
+# 	elif num>=80:
+#      	print("B")
+#     elif num>=70:
+#      	print("C")
+#     elif num>=60:
+#      	print("D")
+#     else:
+#    	  	print("F")
+       
+# print(num, end=" ")
+
+# # str 대신 int로 바꿔서 숫자로 저장해야 함
+# scores = list(map(int, input().split()))
+
+# for num in scores:
+#     if num >= 90:
+#         print("A")
+#     elif num >= 80:
+#         print("B")
+#     elif num >= 70:
+#         print("C")
+#     elif num >= 60:
+#         print("D")
+#     else:
+#         print("F")
+        
+# # 마지막에 숫자를 찍고 싶다면 for문 밖에서 num 출력
+# print(num, end=" ")
+
+# #===================> 대체 뭐가 다른거지 서로???
+
+
+''''''
+
+# N = int(input())
+
+# for num in range(N, 1010):
+#   	if num >= 90:
+#        print("A")
+#     elif num >= 80:
+#        print("B")
+#     elif num >= 70:
+#         print("C")
+#     elif num >= 60:
+#        print("D")
+#     else:
+# 		print("F")
+  
+# print(num, end=" ")
+
+''''''
+# N = int(input())
+# numbers = list(N)
+
+# for num in reversed(numbers):
+#     if num %2 ==0 :
+# 		print(num, end=" ")
+#     else: 
+#         print(num, end=" ")
+
+''''''
+

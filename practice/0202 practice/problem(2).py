@@ -28,6 +28,21 @@ def count_long_words(words, min_length):
             
     return count
 
+# def count_long_words(words, min_length):
+#     count=0
+    
+# for word in words:
+#     word_length = 0
+    
+#     for char in word:
+#         word_length += 1
+    
+#     if word_length>=min_length:
+#         count+=1
+        
+#     return count
+
+
     # 여기에 코드를 작성하여 함수를 완성합니다.
 
 # 추가 테스트를 위한 코드 작성 가능
@@ -42,6 +57,6 @@ print(count_long_words(['a', 'bb', 'ccc'], 5))                 # 0
 #####################################################
 
 
-def count_long_words(words, min_length):
-    word_length=0
-    count=0
+# def count_long_words(words, min_length):
+#     word_length=0
+#     count=0

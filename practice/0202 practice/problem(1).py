@@ -37,11 +37,14 @@ print(calculate_avg([10, 10, 10]))          # 10.0
 print(calculate_avg([1, 2, 4]))          # 2.3333333333333335
 #####################################################
 
-def calculate_avg(temperatures):
-    total = 0
-    count = 0
-    for temp in temperatures:
-        total += temp # total에 temp(온도 1개)를 더한다
-        count += 1 # 몇 개 더하고 있는지 실시간 누적 카운팅
+# def calculate_avg(temperatures):
+#     total = 0
+#     count = 0
+#     for temp in temperatures:
+#         total += temp # total에 temp(온도 1개)를 더한다
+#         count += 1 # 몇 개 더하고 있는지 실시간 누적 카운팅
 
-    return float(total/count) 
+#     return float(total/count) 
+
+
+#

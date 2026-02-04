@@ -11,15 +11,38 @@
 0인 칸은 무시하고 실제 물건이 있는 칸만 세는 예외 처리가 필수적
 
 '''
-def count_total_items(warehouse):
+def count_total_items(warehouse): 
     total_count = 0  # 전체 물건 개수
 
-    for row in warehouse:       # 창고의 한 줄씩 꺼내서
+# row(행)을 한 줄 쫙 훑고 나서 => 해당 row(행)에 있는 item을 하나씩 줍줍
+# [1,0,2] 한 번 돌아주고 ㅋㅋ => 1, 0, 2 하나씩 뽑아와서 확인... 확인..
+
+    for row in warehouse:       # 창고의 한 줄씩 꺼내서 
         for item in row:        # 그 줄에 있는 칸들을 하나씩 확인
             if item != 0:       # 빈 칸(0)이 아니면?
                 total_count += 1  # 개수 세기
                 
     return total_count
+   
+# 전체 물건 꺼내기 => 실제 물품이 있는 칸 꺼내기 
+
+def count_total_items(warehouse):
+    total_count = 0
+    for space in warehouse:
+        for items in space:
+            if items!=0:
+                total_count += 1
+# return total_count
+
+def count_total_items(warehouse):
+    total_count=0
+    
+    for space in warehouse:
+        for items in space:
+            if items != 0:
+                total_count+=1
+    return total_count
+
     # 여기에 코드를 작성하여 함수를 완성합니다.
 
 # 추가 테스트를 위한 코드 작성 가능
