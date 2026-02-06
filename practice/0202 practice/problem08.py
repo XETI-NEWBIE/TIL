@@ -9,7 +9,13 @@ def find_second_largest(numbers):
     # 두 번째로 큰 값을 반환한다 => index [1] 을 의미
     return onlyone_number[1]
 
-
+def find_second_largest(numbers):
+    onlyone_number = list(set(numbers))
+    onlyone_number.sort(reverse=True)
+    
+    return onlyone_number[1]
+    
+    
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))
 

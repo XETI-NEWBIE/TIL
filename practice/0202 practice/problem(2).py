@@ -28,6 +28,32 @@ def count_long_words(words, min_length):
             
     return count
 
+
+def count_long_words(words, min_length):
+    count = 0
+    for word in words:
+        word_length = 0
+        for char in word:
+            word_length += 1
+        if word_length >= min_length:
+            count+=1
+            
+    return count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # def count_long_words(words, min_length):
 #     count=0
     

@@ -27,6 +27,15 @@ def calculate_avg(temperatures):
 
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))
+# def calculate_avg(temperatures):
+#     sum_temp = 0
+#     count = 0
+    
+# for temp in temperatures:
+#     sum_temp += temp
+#     count+=1
+
+# return float(sum_temp/count)
 
 #####################################################
 # 아래 코드를 삭제하는 경우 

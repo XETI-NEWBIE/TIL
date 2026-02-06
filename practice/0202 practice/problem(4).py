@@ -39,8 +39,17 @@ def count_menus(orders):
 
 
 
-
-
+def count_menus(orders):
+    menu_note={}
+    
+    for menu in orders:
+        if menu in menu_note:
+            menu_note[menu] += 1
+        else:
+            menu_note[menu] = 1
+    
+    return menu_note
+        
 
 
 

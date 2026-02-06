@@ -30,6 +30,19 @@ def reverse_list(visited_items):
     
     return reversed_bag
 
+
+
+# def reverse_list(visited_items):
+#     reversed_bag = []
+#     reversed_list = visited_items[::-1]
+    
+#     for item in reversed_list:
+#         reversed_bag.append[item]
+        
+#     return reversed_bag
+
+
+
 #####################################################
 # 아래 코드를 삭제하는 경우 
 # 모든 책임은 삭제한 본인에게 있습니다. 

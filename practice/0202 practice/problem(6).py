@@ -40,6 +40,10 @@ def sum_row_maximums(matrix):
         total_sum+=row[0]
     return total_sum
 
+def sum_row_maximums(matrix):
+    
+    
+    
 #####################################################
 # 아래 코드를 삭제하는 경우 
 # 모든 책임은 삭제한 본인에게 있습니다.
