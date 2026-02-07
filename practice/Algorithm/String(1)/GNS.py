@@ -58,7 +58,9 @@ for _ in range(T):
     num_list = {'ZRO': 0, 'ONE': 1, 'TWO': 2, 'THR': 3, 'FOR': 4, 'FIV': 5, 'SIX': 6, 'SVN': 7, 'EGT': 8, 'NIN': 9}
     # lambda 로 해결 ! 딕셔너리의 key값만 가져와서 0부터 sort()로 정렬해준다
     alien_nums.sort(key=lambda x: num_list[x])
-
+    # if) sorted를 썼다면?
+    # sorted_list = sorted(alien_nums, key=lambda x: num_list[x])
+    # print(n, *sorted_list, sep=" ")
     print(n, *alien_nums, sep=" ")
 
 
