@@ -100,3 +100,6 @@ for i in range(x1[2] + OFFSET, x2[2] + OFFSET):
 ans = sum(sum(row) for row in grid)
 print(ans)
 
+###########################################################################################
+
+m1, m2, d1, d2 = map(int, input().split())
