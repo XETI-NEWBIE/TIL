@@ -332,17 +332,71 @@
 
 # print((c*60+d)-(a*60+b))
 
+# Y = int(input())
 
-
-Y = int(input())
-
-if Y%4==0:
-    print("true")
-if Y%100==0 and Y%400!=0:
-    print("false")
-else:
-    print("false")
+# if Y%4==0:
+#     print("true")
+# if Y%100==0 and Y%400!=0:
+#     print("false")
+# else:
+#     print("false")
 # elif Y%4==0 and Y%100==0 and Y%400!=0:
 #     print("false")
 # else:
 #     print("false")
+
+# 중앙값 구하기
+# A,B,C = map(int, input().split())
+# # -100<=A,B,C<=100
+
+# if (A<B<C) or (C<B<A):
+#     print(B)
+# elif (A<C<B) or (B<C<A):
+#     print(C)
+# elif (B<A<C) or (C<A<B):
+#     print(A)
+    
+
+# arr = list(input().split())
+
+# arr.reverse()
+
+# print(*arr, sep="")
+
+# 제곱하여 출력하기
+# N = int(input())
+# arr = list(map(int, input().split()))
+# list_arr = [x**2 for x in arr]
+# print(*list_arr)
+
+# 일의 자리 배열 (별 오천만개)
+# 그냥 몰겟늗디
+# 일의자리만 추출 => %10 해주면 직빵
+
+# arr =  [2,5]
+
+# for i in range(4,14):
+#     new_arr = (arr[i-1]+arr[i-2])%10
+# print(*new_arr)    
+
+# 짝수만 거꾸로 출력하기
+
+# score = int(input())
+# grade_0 = "pass"
+
+# if score == 100:
+#     print(grade_0)
+# else:
+#     print("failure")
+    
+N = int(input())
+M = list(map(int, input().split()))
+V = int(input())
+
+find_v= 0
+
+for idx in range(1,N+1):
+    for jewel in range(idx):
+        if V==jewel:
+            find_v+=1
+print(find_v)
