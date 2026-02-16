@@ -8,7 +8,7 @@ T = int(input())
 for test_case in range(1, T + 1):
     # 카드 장수 : N 입력
     N=int(input())
-# N 개의 숫자를 문자열 형태로 ㅇ비력
+# N 개의 숫자를 문자열 형태로 입력
     arr=input()
 # 저장소 카운팅 배열 초기화
     count = [0]*10
