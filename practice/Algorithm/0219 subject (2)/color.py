@@ -15,31 +15,31 @@ range(r1, r2 + 1) (뒤에 +1 안 붙이면 한 줄 덜 칠해져서 광탈이야
 (보라색 숫자가 3인지 7인지 30인지 문제 지문을 다시 읽어!)
 '''
 
-# import sys
-# sys.stdin = open("color.txt", "r")
+import sys
+sys.stdin = open("color.txt", "r")
 
-# T=int(input())
-# for test_case in range(1,T+1):
-#     n=int(input())
-#     # 10*10 짜리 거대한 격자 빈 도화지 생성하기 (0으로 초기화)
-#     grid = [[0]*10 for _ in range(10)]
-#     # 각 TC별 우리가 칠해야할 사각형의 개수 (2개,3개 등...)
-#     for _ in range(n):
-#         r1,c1,r2,c2,color=map(int,input().split())
-#         # i부터 j까지 돌면서 하나의 사각형을 그림 (빨강, 파랑...)
-#         for i in range(r1,r2+1):
-#             for j in range(c1,c2+1):
-#                 grid[i][j]+=color
+T=int(input())
+for test_case in range(1,T+1):
+    n=int(input())
+    # 10*10 짜리 거대한 격자 빈 도화지 생성하기 (0으로 초기화)
+    grid = [[0]*10 for _ in range(10)]
+    # 각 TC별 우리가 칠해야할 사각형의 개수 (2개,3개 등...)
+    for _ in range(n):
+        r1,c1,r2,c2,color=map(int,input().split())
+        # i부터 j까지 돌면서 하나의 사각형을 그림 (빨강, 파랑...)
+        for i in range(r1,r2+1):
+            for j in range(c1,c2+1):
+                grid[i][j]+=color
     
-#     purple_count=0
-#     # for i in range(len(grid))
-#     for i in range(10):
-#         # for j in range(len(grid[i]))
-#         for j in range(10):
-#             if grid[i][j]==3:
-#                 purple_count+=1
+    purple_count=0
+    # for i in range(len(grid))
+    for i in range(10):
+        # for j in range(len(grid[i]))
+        for j in range(10):
+            if grid[i][j]==3:
+                purple_count+=1
 
-#     print(f"#{test_case} {purple_count}")
+    print(f"#{test_case} {purple_count}")
 
 # r1, c1, r2, c2, color 순으로 주어지는데 이게 22441이라고 하면
 # 2,  2,  4,  4,    1
