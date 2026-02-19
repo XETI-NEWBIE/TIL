@@ -43,63 +43,63 @@
 #     print(f'#{test_case} {max_num} {max_count}')
 
 
-# import sys
-# sys.stdin = open("numbercard.txt", "r")
+import sys
+sys.stdin = open("numbercard.txt", "r")
 
-# T = int(input())
-# for test_case in range(1,T+1):
+T = int(input())
+for test_case in range(1,T+1):
     
-#     n=int(input())
-#     arr = list(map(int, input()))
+    n=int(input())
+    arr = list(map(int, input().strip()))
 
-#     count=[0]*10
-#     # for i in range(n) 이라고 써줘도 된다 !!!!!!!!!!
-#     # for num in arr:
-#     #    count[num] += 1  이런 방식도 가능하다! (여기에선)
-#     for i in range(len(arr)):
-#         count[arr[i]]+=1
+    count=[0]*10
+    # for i in range(n) 이라고 써줘도 된다 !!!!!!!!!!
+    # for num in arr:
+    #    count[num] += 1  이런 방식도 가능하다! (여기에선)
+    for i in range(len(arr)):
+        count[arr[i]]+=1
     
-#     max_count=0
-#     max_num=0
+    max_count=0
+    max_num=0
 
-#     for card in range(len(count)):
-#         if count[card]>=max_count:
-#             max_count=count[card]
-#             max_num = card
+    for card in range(len(count)):
+        if count[card]>=max_count:
+            max_count=count[card]
+            max_num = card
     
-#     print(f'#{test_case} {max_num} {max_count}')
+    print(f'#{test_case} {max_num} {max_count}')
 
 ##############################################################
 
 # 숫자카드 문제 변형 (1) : 최솟값 찾기
 
-# import sys
-# sys.stdin = open ("numbercard.txt", "r")
+import sys
+sys.stdin = open ("numbercard.txt", "r")
 
-# T = int(input())
-# for test_case in range(1,T+1):
+T = int(input())
+for test_case in range(1,T+1):
     
-#     n=int(input())
-#     arr=list(map(int,input().strip()))
+    n=int(input())
+    arr=list(map(int,input().strip()))
 
-#     count=[0]*10
+    count=[0]*10
     
-#     for i in range(len(arr)):
-#         count[arr[i]]+=1
+    for i in range(len(arr)):
+        count[arr[i]]+=1
     
-#     min_count=999
-#     min_num=0
+    min_count=999
+    min_num=0
 
-#     for card in range(len(count)):
-#         # 현재 최대기록인 min_count보다 작다? 하면 바로 갱신 때리기
-#         # 정리본은 Trail1.py에 상세히 기록해둠
-#         # 무조건 count[card]가 기준이다. 얠 기준으로 부등호 설정이 중요
-#         if count[card]>0 and count[card]<min_count:
-#         # if count[card]>=max_count:
-#             min_count=count[card]
-#             min_num=card
+    for card in range(len(count)):
+        # 현재 최대기록인 min_count보다 작다? 하면 바로 갱신 때리기
+        # 정리본은 Trail1.py에 상세히 기록해둠
+        # 무조건 count[card]가 기준이다. 얠 기준으로 부등호 설정이 중요
+        if count[card]>0 and count[card]<min_count:
+        # if count[card]>=max_count:
+            min_count=count[card]
+            min_num=card
 
-#     print(f'#{test_case} {min_num} {min_count}')
+    print(f'#{test_case} {min_num} {min_count}')
 
 ## 1. if 조건문의 수정이 필요
 ## 2. 부등호 방향도 다시 생각해보자
@@ -108,44 +108,48 @@
 
 # 숫자 카드 문제 변형 (2) : 짝수 최댓값 찾기
 
-# import sys
-# sys.stdin = open("numbercard.txt", "r")
+import sys
+sys.stdin = open("numbercard.txt", "r")
 
-# T=int(input())
-# for test_case in range(1,T+1):
-#     n=int(input())
-#     arr=list(map(int, input().strip()))
+T=int(input())
+for test_case in range(1,T+1):
+    n=int(input())
+    arr=list(map(int, input().strip()))
 
-#     count=[0]*10
+    count=[0]*10
 
-#     # for i in range(len(arr)):로 쓰고 싶다면
-#     # 반드시 if arr[i]%2==0 처럼 처리해야된다 ! 
-#     #     if i%2==0: ===> (x)
-#     #         count[arr[i]]+=1
+    # for i in range(len(arr)):로 쓰고 싶다면
+    # 반드시 if arr[i]%2==0 처럼 처리해야된다 ! 
+    #     if i%2==0: ===> (x)
+    #         count[arr[i]]+=1
 
-#     for i in arr:
-#         if i%2==0:
-#             count[i]+=1
+    for i in range(len(arr)):
+        if arr[i]%2==0:
+            count[arr[i]]+=1
 
-#     max_count=0
-#     max_num=0
+    # for i in arr:
+    #     if i%2==0:
+    #         count[i]+=1
 
-#     for card in range(len(count)):
-#         if count[card]>=max_count:
-#             max_count=count[card]
-#             max_num=card
+    max_count=0
+    max_num=0
 
-#     # 아래처럼 쓰는 것도 가능하다 ! 그냥 짝수 조건만 뒤로 빼주기 ㅋㅋ
-#     # for i in range(len(arr))
-#     #     count[arr[i]]+=1
-#     # max_count=0
-#     # max_num=0
-#     # for card in range(len(count)):
-#     #     if card%2==0 and count[card]>=max_count:
-#     #         max_count=count[card]
-#     #         max_num=card
+    for card in range(len(count)):
+        if count[card]>=max_count:
+            max_count=count[card]
+            max_num=card
 
-#     print(f'#{test_case} {max_num} {max_count}')
+    # 아래처럼 쓰는 것도 가능하다 ! 그냥 짝수 조건만 뒤로 빼주기 ㅋㅋ
+    # for i in range(len(arr))
+    #     count[arr[i]]+=1
+    # max_count=0
+    # max_num=0
+    # for card in range(len(count)):
+    #     if card%2==0 and count[card]>=max_count:
+    #         max_count=count[card]
+    #         max_num=card
+
+    print(f'#{test_case} {max_num} {max_count}')
 
 ##############################################################
 
@@ -166,8 +170,10 @@ for test_case in range(1,T+1):
     # for i in range(1,n)도 얼마든지 가능하다 !
     # 연속하는지 안하는지 파악하는 if문
     for i in range(1,len(arr)):
+    # for i in range(1,n):
         if arr[i]==arr[i-1]:
             combo+=1
+        # 연속하는 문제는 else일때의 디폴트값을 정해놓는 경우가 많은 것 같다
         else:
             combo=1
     # 연속하는게 최댓값인지 판별하는 if문
@@ -240,3 +246,6 @@ for test_case in range(1,T+1):
             max_num=num
 
     print(f'#{test_case} {max_num} {max_count}')
+
+
+
