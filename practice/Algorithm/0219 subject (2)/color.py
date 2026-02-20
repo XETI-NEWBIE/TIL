@@ -259,3 +259,30 @@ for test_case in range(1,T+1):
             if grid[i][j]==3:
                 purple_count+=1
     print(f'#{test_case} {purple_count}')
+
+    ######################################################
+# GEMINI 수정코드
+
+T = int(input())
+for test_case in range(1, T + 1):
+    n, m = map(int, input().split())
+    # 1번 인덱스부터 쓰기 위해 (n+1) 크기로 생성
+    grid = [[0] * (n + 1) for _ in range(n + 1)]
+
+    for _ in range(m):
+        # r:행, c:열, w:폭(가로), h:높이(세로)
+        r, c, w, h = map(int, input().split())
+        
+        # r행부터 h만큼(r+h-1까지), c열부터 w만큼(c+w-1까지)
+        for i in range(r, r + h):
+            for j in range(c, c + w):
+                grid[i][j] = 1 # 도장이 찍혔음을 표시
+
+    color_count = 0
+    # 전체 격자를 돌며 칠해진 칸 합산
+    for i in range(1, n + 1):
+        for j in range(1, n + 1):
+            if grid[i][j] == 1:
+                color_count += 1
+
+    print(f'#{test_case} {color_count}')

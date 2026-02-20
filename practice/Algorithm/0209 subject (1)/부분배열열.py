@@ -66,7 +66,7 @@ for test_case in range(1, T + 1):
 
     # 벨트 A를 처음부터 끝까지 한 번만 훑습니다 (순서대로니까요)
     for i in range(N):
-        # 벨트의 글자(A[i])가 우리가 찾는 단어의 현재 글자(B[target_idx])와 같다면?
+        # 벨트의 글자(A[i])가 우리가 찾는 단어의 현재 글자(B[target])과 같다면?
         # target: "내가 지금 B에서 찾아야 할 글자의 순서" 
         # A[i] : "문자열 A에서 i번째 위치에 있는 글자를 가져와라"라는 뜻
         if A[i] == B[target]:
