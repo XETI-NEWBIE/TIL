@@ -1,0 +1,193 @@
+<!-- <!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서 구매 리스트</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="mb-4">도서 구매 서비스</h2>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card">
+            <img src="book1.jpg" class="card-img-top" alt="도서 이미지" />
+            <div class="card-body">
+              <h5 class="card-title">책 제목 1</h5>
+              <p class="card-text">책 설명이 여기에 들어갑니다.</p>
+              <a href="#" class="btn btn-primary">구매하기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card">
+            <img src="book1.jpg" class="card-img-top" alt="도서 이미지" />
+            <div class="card-body">
+              <h5 class="card-title">책 제목 2</h5>
+              <p class="card-text">책 설명이 여기에 들어갑니다.</p>
+              <a href="#" class="btn btn-primary">구매하기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card">
+            <img src="book1.jpg" class="card-img-top" alt="도서 이미지" />
+            <div class="card-body">
+              <h5 class="card-title">책 제목 3</h5>
+              <p class="card-text">책 설명이 여기에 들어갑니다.</p>
+              <a href="#" class="btn btn-primary">구매하기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html> -->
+
+<!-- ############################################################################################################# -->
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>소셜 커머스 반응형 페이지</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .product-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      .section-title {
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .product-item {
+        margin-bottom: 40px;
+      }
+      .category-list {
+        list-style: none;
+        padding-left: 0;
+      }
+      .category-list li {
+        margin-bottom: 8px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12 col-lg-9">
+          <h2 class="section-title">주목 상품</h2>
+
+          <div class="product-item">
+            <img src="product1.jpg" class="product-img" alt="상품 1" />
+            <h4>상품 1</h4>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              auctor eu felis at tristique.
+            </p>
+          </div>
+          <div class="product-item">
+            <img src="product2.jpg" class="product-img" alt="상품 2" />
+            <h4>상품 2</h4>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              auctor eu felis at tristique.
+            </p>
+          </div>
+          <div class="product-item">
+            <img src="product3.jpg" class="product-img" alt="상품 3" />
+            <h4>상품 3</h4>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              auctor eu felis at tristique.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+          <h2 class="section-title">카테고리</h2>
+          <ul class="category-list">
+            <li>• 카테고리 1</li>
+            <li>• 카테고리 2</li>
+            <li>• 카테고리 3</li>
+            <li>• 카테고리 4</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-10 offset-md-2 col-lg-4 offset-lg-0">
+          <h3 class="section-title">인기 상품</h3>
+          <div class="product-item">
+            <img src="product4.jpg" class="product-img" alt="상품 4" />
+            <h5>상품 4</h5>
+            <p class="small text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+          </div>
+          <div class="product-item">
+            <img src="product5.jpg" class="product-img" alt="상품 5" />
+            <h5>상품 5</h5>
+            <p class="small text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-10 offset-md-2 col-lg-4 offset-lg-0">
+          <h3 class="section-title">신상품</h3>
+          <div class="product-item">
+            <img src="product6.jpg" class="product-img" alt="상품 6" />
+            <h5>상품 6</h5>
+            <p class="small text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+          </div>
+          <div class="product-item">
+            <img src="product7.jpg" class="product-img" alt="상품 7" />
+            <h5>상품 7</h5>
+            <p class="small text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-10 offset-md-2 col-lg-4 offset-lg-0">
+          <h3 class="section-title">특별 할인</h3>
+          <div class="product-item">
+            <img src="product8.jpg" class="product-img" alt="상품 8" />
+            <h5>상품 8</h5>
+            <p class="small text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+          </div>
+          <div class="product-item">
+            <img src="product9.jpg" class="product-img" alt="상품 9" />
+            <h5>상품 9</h5>
+            <p class="small text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
