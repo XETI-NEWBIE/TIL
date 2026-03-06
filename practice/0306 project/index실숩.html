@@ -1,0 +1,56 @@
+    <!-- 한 줄을 차지 -->
+    <!-- 필요한 만큼을 차지 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background-color: #fff;
+            margin: 50px;
+            padding: 50px;
+        }
+        .inline-box{
+            /*block : 마진 상쇄가 발생할수도
+            /*dispaly : block;*/
+            /*inline-block : 마진 상쇄가 없음 */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- div 하나 span 하나를 순서대로 -->
+    <!-- <div+span>
+    <예시 : div 태그 다섯개, 내부엔 p태그 하나씩>
+    <(div>p)*5-->
+    <!-- <div.box></div.box> -->
+    <!-- <div.box></div.box> -->
+    <div class="box">div태그</div>
+    <span clas="box">span태그</span>
+    <span clas="box">span태그</span>
+    <margin>상하 margin은 보통 무시</margin>
+    
+    <div>
+        <p></p>
+    </div>
+    <div>
+        <p></p>
+    </div>
+    <div>
+        <p></p>
+    </div>
+    <div>
+        <p></p>
+    </div>
+    <div>
+        <p></p>
+    </div>
+    <span>span 태그</span>
+</body>
+</html>
