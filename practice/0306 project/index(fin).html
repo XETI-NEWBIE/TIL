@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hype Boy 프로필 - 기본 정보 수정</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;400;600;900&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: "Hahmlet", serif;
+            background-color: #f4f8fb;
+            background-image: linear-gradient(#d9e4fc 1px, transparent 1px), linear-gradient(90deg, #d9e4fc 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #1a1a1a;
+        }
+
+        .retro-navbar {
+            background-color: #8bb8ff; 
+            color: white;
+            border-bottom: 3px solid #1a1a1a;
+            box-shadow: 0 4px 0px #1a1a1a;
+            text-shadow: 1px 1px 0px #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn {
+            background-color: #fff;
+            border: 2px solid #1a1a1a;
+            box-shadow: 3px 3px 0px #1a1a1a;
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #1a1a1a;
+        }
+        .tab-btn.active {
+            background-color: #ff9cee; 
+            background-color: #ff9cee; 
+            color: #1a1a1a;
+            font-weight: 900;
+        }
+
+        .retro-box {
+            background-color: #ffffff;
+            border: 3px solid #1a1a1a;
+            border-radius: 15px;
+            box-shadow: 8px 8px 0px #ffb3c6;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border: 3px solid #1a1a1a;
+            box-shadow: 6px 6px 0px #8bb8ff;
+        }
+
+        .btn-update {
+            background-color: #00e5ff; 
+            color: #1a1a1a;
+            font-weight: 900;
+            border: 2px solid #1a1a1a;
+            box-shadow: 3px 3px 0px #1a1a1a;
+            border-radius: 8px;
+            transition: all 0.1s;
+        }
+        .btn-update:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px #1a1a1a;
+        }
+
+
+        .form-control {
+            border: 2px solid #1a1a1a;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #ff9cee;
+            background-color: #fff5f8;
+        }
+        .input-group-text {
+            border: 2px solid #1a1a1a;
+            background-color: #f0f0f0;
+            font-weight: 900;
+        }
+
+        .form-check-input {
+            border: 2px solid #1a1a1a;
+        }
+        .form-check-input:checked {
+            background-color: #ff9cee;
+            border-color: #1a1a1a;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] { -moz-appearance: textfield; }
+    </style>
+</head>
+<body>
+
+    <div class="retro-navbar text-center py-3 fs-4 fw-bold mb-4">
+        ✨ John Doe's Hype Profile ✨
+    </div>
+    
+    <div class="d-flex justify-content-center gap-3 mb-5">
+        <a href="#" class="tab-btn active text-decoration-none px-4 py-2">기본 정보 수정</a>
+        <a href="portfolio.html" class="tab-btn text-dark text-decoration-none px-4 py-2">포트폴리오 수정</a>
+    </div>
+
+    <div class="container retro-box p-5 mb-5" style="max-width: 900px;">
+        <h3 class="text-center fw-bold mb-5" style="text-shadow: 2px 2px 0px #ffb3c6;">기본 정보 수정</h3>
+
+        <div class="row text-center border-bottom border-dark border-2 pb-5 mb-5">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h5 class="fw-bold mb-4">프로필 사진</h5>
+                <img src="profile.jpg" class="profile-img rounded-circle mb-4" alt="프로필 사진">
+                
+                <h5 class="fw-bold mb-3">자기 소개</h5>
+                <div class="input-group px-3">
+                    <textarea class="form-control" rows="1" placeholder="자기 소개를 입력해주세요"></textarea>
+                    <button class="btn btn-update" type="button">Update</button>
+                </div>
+            </div>
+
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                <div class="mb-4 w-100">
+                    <h6 class="fw-bold mb-3">투자상품 선호도</h6>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="stock"><label class="fw-bold" for="stock">주식</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="bond"><label class="fw-bold" for="bond">채권</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="realestate" checked><label class="fw-bold" for="realestate">부동산</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="crypto" checked><label class="fw-bold" for="crypto">가상화폐</label>
+                    </div>
+                </div>
+
+                <div class="mb-4 w-100">
+                    <h6 class="fw-bold mb-3">투자 스타일</h6>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="style" id="stable"><label class="fw-bold" for="stable">안정적</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="style" id="neutral"><label class="fw-bold" for="neutral">중립적</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="style" id="aggressive" checked><label class="fw-bold" for="aggressive">공격적</label>
+                    </div>
+                </div>
+
+                <div class="w-100">
+                    <h6 class="fw-bold mb-3">관심 종목</h6>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="it"><label class="fw-bold" for="it">정보기술</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="consumer" checked><label class="fw-bold" for="consumer">소비재</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="finance" checked><label class="fw-bold" for="finance">금융</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-2">
+            <div class="mb-3">
+                <label class="form-label fw-bold">회원 번호</label>
+                <input type="text" class="form-control bg-light text-muted" value="1" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">ID</label>
+                <input type="text" class="form-control bg-light text-muted" value="김싸피" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Email</label>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="이메일을 설정해주세요">
+                    <span class="input-group-text">@example.com</span>
+                    <button class="btn btn-update" type="button">Update</button>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Nickname</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="닉네임을 설정해주세요">
+                    <button class="btn btn-update" type="button">Update</button>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">나이</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" placeholder="나이를 설정해주세요">
+                    <button class="btn btn-update" type="button">Update</button>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">자산과 연봉</label>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" placeholder="현재 자산을 입력해주세요">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" placeholder="연봉을 입력해주세요">
+                            <button class="btn btn-update" type="button">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
