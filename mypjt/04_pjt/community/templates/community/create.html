@@ -1,0 +1,72 @@
+{% extends 'community/base.html' %}
+
+{% block title %}{{ asset.name }} 글쓰기{% endblock %}
+
+{% block content %}
+<p class="breadcrumb">
+    <a href="{% url 'community:index' %}">자산 목록</a>
+    <span>/</span>
+    <a href="{% url 'community:board' asset.id %}">{{ asset.name }}</a>
+    <span>/</span>
+    <span>글쓰기</span>
+</p>
+
+<section class="form-layout">
+    <div class="panel form-panel">
+        <div class="section-header section-header-tight">
+            <div>
+                <span class="eyebrow">New Discussion</span>
+                <h1>{{ asset.name }} 의견 작성</h1>
+            </div>
+            <p>시장 흐름, 리스크 해석, 투자 아이디어를 간결하게 정리해 보세요.</p>
+        </div>
+
+        <form action="" method="POST" class="form-shell">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-errors">{{ form.non_field_errors }}</div>
+            {% endif %}
+
+            <div class="field-group">
+                <label for="id_title">제목</label>
+                {{ form.title }}
+                {{ form.title.errors }}
+            </div>
+
+            <div class="field-group">
+                <label for="id_author">작성자</label>
+                {{ form.author }}
+                {{ form.author.errors }}
+            </div>
+
+            <div class="field-group">
+                <label for="id_content">내용</label>
+                {{ form.content }}
+                {{ form.content.errors }}
+            </div>
+
+            <div class="action-row">
+                <button type="submit" class="button button-primary">등록하기</button>
+                <a href="{% url 'community:board' asset.id %}" class="button button-secondary">취소</a>
+            </div>
+        </form>
+    </div>
+
+    <aside class="panel side-panel {{ asset.theme_class }}">
+        <span class="chip">{{ asset.category }}</span>
+        <h2>{{ asset.name }}</h2>
+        <p>{{ asset.description }}</p>
+        <div class="meta-grid">
+            <article class="meta-item">
+                <span class="metric-label">위험도</span>
+                <strong>{{ asset.risk_level }}</strong>
+            </article>
+            <article class="meta-item">
+                <span class="metric-label">게시판</span>
+                <strong>전용 토론</strong>
+            </article>
+        </div>
+    </aside>
+</section>
+{% endblock %}

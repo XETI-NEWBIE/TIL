@@ -1,0 +1,68 @@
+{% extends "crawler/base.html" %}
+
+{% block content %}
+  <section class="panel">
+    <p><a href="{% url 'crawler:index' %}">← 새 검색</a></p>
+    <h2>{{ result.matched_company }}</h2>
+    <p class="meta">
+      입력 회사명: {{ result.requested_company }} /
+      종목 코드: {{ result.stock_code }} /
+      생성 일시: {{ result.created_at|date:"Y-m-d H:i:s" }}
+    </p>
+    {% if result.status_message %}
+      <p class="message">{{ result.status_message }}</p>
+    {% endif %}
+  </section>
+
+  <section class="grid">
+    <article class="panel">
+      <h3>원본 댓글</h3>
+      <ol class="list">
+        {% for comment in result.raw_comments %}
+          <li>{{ comment }}</li>
+        {% empty %}
+          <li>수집된 댓글이 없습니다.</li>
+        {% endfor %}
+      </ol>
+    </article>
+
+    <article class="panel">
+      <h3>정제 댓글</h3>
+      <ol class="list">
+        {% for comment in result.cleaned_comments %}
+          <li>{{ comment }}</li>
+        {% empty %}
+          <li>정제 후 남은 댓글이 없습니다.</li>
+        {% endfor %}
+      </ol>
+    </article>
+  </section>
+
+  <section class="panel">
+    <h3>증강 댓글</h3>
+    <ol class="list">
+      {% for comment in result.augmented_comments %}
+        <li>{{ comment }}</li>
+      {% empty %}
+        <li>증강 데이터가 없습니다.</li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="grid">
+    <article class="panel">
+      <h3>댓글 요약</h3>
+      <p>{{ result.summary|linebreaksbr }}</p>
+    </article>
+
+    <article class="panel">
+      <h3>IQR 임계값 정보</h3>
+      <pre>{{ result.iqr_info }}</pre>
+    </article>
+  </section>
+
+  <section class="panel">
+    <h3>통합 데이터</h3>
+    <pre>{{ result.integrated_data }}</pre>
+  </section>
+{% endblock content %}

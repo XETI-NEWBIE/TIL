@@ -1,0 +1,182 @@
+{% comment %} <!DOCTYPE html>
+<html lang="ko">
+
+<header class="header">
+  <div class="header-inner" style="display: flex; justify-content: space-between; align-items: center;">
+    <a href="{% url 'community:asset_list' %}">🏦 금융 자산 커뮤니티</a>
+    <div>
+      {% if user.is_authenticated %}
+        <span style="margin-right: 15px;">{{ user.nickname }}님 환영합니다!</span>
+        <a href="{% url 'accounts:profile' %}" class="btn">프로필</a>
+        <a href="{% url 'accounts:update_password' %}" class="btn btn-secondary">비밀번호 수정</a>
+        <form action="{% url 'accounts:logout' %}" method="POST" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">로그아웃</button>
+        </form>
+      {% else %}
+        <a href="{% url 'accounts:login' %}" class="btn btn-secondary">로그인</a>
+        <a href="{% url 'accounts:signup' %}" class="btn">회원가입</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+<body>
+  <div class="app-wrap">
+    <header class="header">
+      <div class="header-inner">
+        <a href="{% url 'community:asset_list' %}">🏦 금융 자산 커뮤니티</a>
+      </div>
+    </header>
+    <main class="main">
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </div>
+</body>
+
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}금융 자산 커뮤니티{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #0d9488;
+      --color-primary-hover: #0f766e;
+      --color-primary-light: #ccfbf1;
+      --color-secondary: #64748b;
+      --color-secondary-hover: #475569;
+      --color-danger: #dc2626;
+      --color-danger-hover: #b91c1c;
+      --color-bg: #f8fafc;
+      --color-bg-card: #ffffff;
+      --color-border: #e2e8f0;
+      --color-text: #0f172a;
+      --color-text-muted: #64748b;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+      --radius: 8px;
+      --radius-btn: 6px;
+      --transition: 0.2s ease;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0; padding: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-size: 15px;
+      min-height: 100vh;
+    }
+    .app-wrap { min-height: 100vh; display: flex; flex-direction: column; }
+    
+    /* 헤더 스타일 */
+    .header {
+      background: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header a.logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    .main { flex: 1; max-width: 960px; margin: 0 auto; padding: 1.5rem; width: 100%; }
+    .container {
+      background: var(--color-bg-card);
+      padding: 1.75rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+    }
+
+    /* 버튼 스타일 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: var(--radius-btn);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--color-primary);
+      color: #fff;
+      margin-left: 0.5rem;
+    }
+    .btn-secondary { background: var(--color-secondary); }
+    .btn-danger { background: var(--color-danger); }
+    
+    .page-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+    .messages { list-style: none; padding: 0; margin-bottom: 1rem; }
+    .messages li { padding: 0.75rem; background: #fef2f2; color: var(--color-danger); border: 1px solid #fecaca; border-radius: var(--radius-btn); }
+  </style>
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+  <div class="app-wrap">
+    <header class="header">
+      <div class="header-inner">
+        <a href="{% url 'community:asset_list' %}" class="logo">🏦 금융 자산 커뮤니티</a>
+        <div class="nav-auth">
+          {% if user.is_authenticated %}
+            <span style="font-size: 0.875rem; color: var(--color-text-muted);">{{ user.nickname }}님 환영합니다!</span>
+            <a href="{% url 'accounts:profile' %}" class="btn">프로필</a>
+            <form action="{% url 'accounts:logout' %}" method="POST" style="display: inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">로그아웃</button>
+            </form>
+          {% else %}
+            <a href="{% url 'accounts:login' %}" class="btn btn-secondary">로그인</a>
+            <a href="{% url 'accounts:signup' %}" class="btn">회원가입</a>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+# .gitignore 파일 내용 예시
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
+.DS_Store

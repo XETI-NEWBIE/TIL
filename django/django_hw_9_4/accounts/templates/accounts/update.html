@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>회원 정보 수정</h1>
+  <form action="{% url 'accounts:update' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'accounts:change_password' %}">Set password</a><br><br>
+    <input type="submit" value="수정 완료"> </form>
+{% endblock content %}

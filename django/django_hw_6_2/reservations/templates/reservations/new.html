@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>예약 생성 페이지</h1>
+  <form action="{% url 'reservations:create' %}" method="POST">
+    {% csrf_token %}
+    
+    {# 에러가 있을 때 빨간색으로 표시해 줍니다 #}
+    {% if form.errors %}
+      <div style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 10px;">
+        입력 형식을 확인해 주세요! (날짜는 2026-07-28 형식이여야 합니다.)
+      </div>
+    {% endif %}
+
+    {{ form.as_p }}
+    
+    <input type="submit" value="예약 생성">
+  </form>
+{% endblock content %}

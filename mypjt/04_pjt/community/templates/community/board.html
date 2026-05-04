@@ -1,0 +1,63 @@
+{% extends 'community/base.html' %}
+
+{% block title %}{{ asset.name }} 토론 게시판{% endblock %}
+
+{% block content %}
+<p class="breadcrumb">
+    <a href="{% url 'community:index' %}">자산 목록</a>
+    <span>/</span>
+    <span>{{ asset.name }}</span>
+</p>
+
+<section class="hero-panel hero-panel-compact asset-focus {{ asset.theme_class }}">
+    <div class="hero-copy">
+        <span class="eyebrow">{{ asset.category }}</span>
+        <h1>{{ asset.name }} 토론 게시판</h1>
+        <p>{{ asset.description }}</p>
+        <div class="inline-meta">
+            <span class="risk-badge {{ asset.risk_class }}">위험도 {{ asset.risk_level }}</span>
+        </div>
+    </div>
+
+    <aside class="hero-side-panel">
+        <article class="mini-panel">
+            <span class="metric-label">게시글 수</span>
+            <strong>{{ post_count }}</strong>
+            <p>최근 의견과 분석을 빠르게 확인할 수 있습니다.</p>
+        </article>
+        <a href="{% url 'community:create' asset.id %}" class="button button-primary button-block">새 글 작성</a>
+    </aside>
+</section>
+
+<section class="section-header">
+    <div>
+        <span class="eyebrow">Discussion Feed</span>
+        <h2>최근 토론</h2>
+    </div>
+    <p>제목과 요약을 먼저 보고 관심 있는 글로 들어갈 수 있도록 정리했습니다.</p>
+</section>
+
+<section class="post-list">
+    {% for post in posts %}
+        <article class="post-card">
+            <div class="post-card-main">
+                <span class="eyebrow">Post {{ forloop.counter }}</span>
+                <h3>
+                    <a href="{% url 'community:detail' asset.id post.pk %}">{{ post.title }}</a>
+                </h3>
+                <p class="post-preview">{{ post.content|truncatechars:120 }}</p>
+            </div>
+            <div class="post-card-meta">
+                <span>{{ post.author }}</span>
+                <span>{{ post.created_at|date:"Y.m.d H:i" }}</span>
+            </div>
+        </article>
+    {% empty %}
+        <div class="empty-state">
+            <h3>아직 작성된 글이 없습니다</h3>
+            <p>{{ asset.name }}에 대한 첫 의견을 남겨서 토론을 시작해 보세요.</p>
+            <a href="{% url 'community:create' asset.id %}" class="button button-primary">첫 글 작성하기</a>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}

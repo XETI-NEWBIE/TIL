@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PJT06 데이터 크롤링</title>
+  <style>
+    :root {
+      color: #1f2937;
+      background: #f6f7fb;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    header {
+      background: #113f67;
+      color: #fff;
+      padding: 24px 32px;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    a {
+      color: #0f5fa8;
+      text-decoration: none;
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid #dde3ea;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .messages {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      border-radius: 6px;
+      padding: 12px 14px;
+      background: #e9f5ff;
+      border: 1px solid #b8dcff;
+    }
+
+    .message.error {
+      background: #fff1f0;
+      border-color: #ffccc7;
+    }
+
+    .message.success {
+      background: #f0fff4;
+      border-color: #b7ebc6;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: min(420px, 80vw);
+      border: 1px solid #b9c2cf;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 16px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 6px;
+      background: #113f67;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+      padding: 13px 18px;
+    }
+
+    button:hover {
+      background: #0b3152;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .list li {
+      margin: 8px 0;
+      line-height: 1.55;
+    }
+
+    .meta {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    pre {
+      overflow: auto;
+      background: #f2f4f7;
+      border-radius: 6px;
+      padding: 14px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PJT06 데이터 크롤링 프로젝트</h1>
+    <p>토스증권 댓글 수집, 전처리, LLM 증강, 통합 결과 저장</p>
+  </header>
+  <main>
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% block content %}{% endblock content %}
+  </main>
+</body>
+</html>

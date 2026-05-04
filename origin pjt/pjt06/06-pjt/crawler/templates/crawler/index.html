@@ -1,0 +1,48 @@
+{% extends "crawler/base.html" %}
+
+{% block content %}
+  <section class="panel">
+    <h2>회사명 입력</h2>
+    <form method="post" id="crawl-form">
+      {% csrf_token %}
+      <div>
+        {{ form.company_name.label_tag }}
+        {{ form.company_name }}
+        {% for error in form.company_name.errors %}
+          <p class="message error">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <button type="submit" id="submit-button">댓글 수집 시작</button>
+    </form>
+    <p class="meta" id="loading-message" style="display: none;">
+      크롤링과 LLM 처리를 진행 중입니다. 토스증권 페이지 로딩과 댓글 수집 때문에 잠시 걸릴 수 있습니다.
+    </p>
+  </section>
+
+  <section class="panel">
+    <h2>최근 처리 결과</h2>
+    {% if latest_results %}
+      <ol class="list">
+        {% for item in latest_results %}
+          <li>
+            <a href="{% url 'crawler:result_detail' item.pk %}">{{ item.matched_company }}</a>
+            <span class="meta">입력: {{ item.requested_company }} / {{ item.created_at|date:"Y-m-d H:i" }}</span>
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <p class="meta">아직 저장된 결과가 없습니다.</p>
+    {% endif %}
+  </section>
+  <script>
+    const form = document.querySelector("#crawl-form");
+    const button = document.querySelector("#submit-button");
+    const loadingMessage = document.querySelector("#loading-message");
+
+    form.addEventListener("submit", () => {
+      button.disabled = true;
+      button.textContent = "처리 중...";
+      loadingMessage.style.display = "block";
+    });
+  </script>
+{% endblock content %}

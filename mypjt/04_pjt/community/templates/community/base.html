@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}금융 자산 커뮤니티{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'community/community.css' %}">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <a href="{% url 'community:index' %}" class="brand">
+                <span class="brand-mark">FA</span>
+                <span class="brand-copy">
+                    <strong>금융 자산 커뮤니티</strong>
+                    <small>정보 탐색부터 토론까지 한 화면에서</small>
+                </span>
+            </a>
+        </header>
+
+        <main class="page-main">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

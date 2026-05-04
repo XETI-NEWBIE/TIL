@@ -1,0 +1,47 @@
+{% extends 'community/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<p class="breadcrumb">
+    <a href="{% url 'community:index' %}">자산 목록</a>
+    <span>/</span>
+    <a href="{% url 'community:board' asset.id %}">{{ asset.name }}</a>
+    <span>/</span>
+    <span>글 보기</span>
+</p>
+
+<section class="detail-layout">
+    <article class="panel article-panel">
+        <span class="eyebrow">{{ asset.category }} 토론</span>
+        <h1>{{ post.title }}</h1>
+        <div class="post-meta-bar">
+            <span>{{ post.author }}</span>
+            <span>{{ post.created_at|date:"Y.m.d H:i" }}</span>
+            <span>수정 {{ post.updated_at|date:"Y.m.d H:i" }}</span>
+        </div>
+
+        <div class="content-prose">
+            {{ post.content|linebreaks }}
+        </div>
+
+        <div class="action-row">
+            <a href="{% url 'community:board' asset.id %}" class="button button-secondary">목록으로</a>
+            <a href="{% url 'community:update' asset.id post.pk %}" class="button button-primary">수정</a>
+            <form action="{% url 'community:delete' asset.id post.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="button button-danger">삭제</button>
+            </form>
+        </div>
+    </article>
+
+    <aside class="panel side-panel {{ asset.theme_class }}">
+        <span class="chip">{{ asset.category }}</span>
+        <h2>{{ asset.name }}</h2>
+        <p>{{ asset.description }}</p>
+        <div class="inline-meta">
+            <span class="risk-badge {{ asset.risk_class }}">위험도 {{ asset.risk_level }}</span>
+        </div>
+    </aside>
+</section>
+{% endblock %}

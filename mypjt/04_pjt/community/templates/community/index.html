@@ -1,0 +1,75 @@
+{% extends 'community/base.html' %}
+
+{% block title %}금융 자산 목록{% endblock %}
+
+{% block content %}
+<section class="hero-panel">
+    <div class="hero-copy">
+        <span class="eyebrow">Asset Directory</span>
+        <h1>금융 자산 목록</h1>
+        <p>
+            PDF의 정보 구조는 유지하되, 자산의 성격과 위험도를 더 빠르게 읽을 수 있도록 카드 중심 레이아웃으로 재구성했습니다.
+            관심 자산을 선택하면 바로 전용 토론 게시판으로 이동할 수 있습니다.
+        </p>
+        <div class="hero-actions">
+            <a href="#asset-grid" class="button button-primary">자산 둘러보기</a>
+        </div>
+    </div>
+
+    <div class="hero-metrics">
+        <article class="metric-card">
+            <span class="metric-label">등록 자산</span>
+            <strong>{{ asset_count }}</strong>
+            <p>한 화면에서 비교 가능한 자산 수</p>
+        </article>
+        <article class="metric-card">
+            <span class="metric-label">카테고리</span>
+            <strong>{{ category_count }}</strong>
+            <p>주식, 채권, 원자재, 암호자산</p>
+        </article>
+        <article class="metric-card">
+            <span class="metric-label">고위험 자산</span>
+            <strong>{{ high_risk_count }}</strong>
+            <p>상 또는 중상 위험도 자산</p>
+        </article>
+        <article class="metric-card">
+            <span class="metric-label">안정 자산</span>
+            <strong>{{ stable_asset_count }}</strong>
+            <p>하 또는 중하 위험도 자산</p>
+        </article>
+    </div>
+</section>
+
+<section class="section-header">
+    <div>
+        <span class="eyebrow">Community Entry</span>
+        <h2>자산별 토론 입구</h2>
+    </div>
+    <p>각 카드는 자산 설명, 카테고리, 위험도를 요약해서 보여주고 바로 게시판으로 연결됩니다.</p>
+</section>
+
+<section id="asset-grid" class="asset-grid">
+    {% for asset in assets %}
+        <article class="asset-card {{ asset.theme_class }}">
+            <div class="asset-meta">
+                <span class="chip">{{ asset.category }}</span>
+                <span class="risk-badge {{ asset.risk_class }}">위험도 {{ asset.risk_level }}</span>
+            </div>
+
+            <div class="asset-card-header">
+                <h3>{{ asset.name }}</h3>
+                <p>{{ asset.description }}</p>
+            </div>
+
+            <div class="card-actions">
+                <a href="{% url 'community:board' asset.id %}" class="button button-primary">토론 게시판 열기</a>
+            </div>
+        </article>
+    {% empty %}
+        <div class="empty-state">
+            <h3>표시할 자산이 없습니다</h3>
+            <p>데이터 파일을 확인한 뒤 다시 불러와 주세요.</p>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}

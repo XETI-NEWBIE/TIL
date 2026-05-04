@@ -1,0 +1,12 @@
+{% extends 'community/base.html' %}
+
+{% block title %}페이지를 찾을 수 없습니다{% endblock %}
+
+{% block content %}
+<section class="empty-state empty-state-large">
+    <span class="eyebrow">404 Error</span>
+    <h1>페이지를 찾을 수 없습니다</h1>
+    <p>요청한 금융 자산이 없거나 잘못된 경로입니다. 자산 목록으로 돌아가 다시 선택해 주세요.</p>
+    <a href="{% url 'community:index' %}" class="button button-primary">자산 목록으로 돌아가기</a>
+</section>
+{% endblock %}

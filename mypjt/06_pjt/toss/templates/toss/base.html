@@ -1,0 +1,54 @@
+<!-- toss/templates/toss/base.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}댓글 증강 시스템{% endblock %}</title>
+    <!-- 명세서 스타일의 깔끔한 폰트 적용 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 공통 CSS 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f9fafb; /* 토스 느낌의 아주 연한 회색 배경 */
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #3182f6; /* 토스 블루 */
+            font-size: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 자식 템플릿에서 추가할 스타일 공간 */
+        {% block extra_css %}{% endblock %}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 공통 헤더 부분 -->
+        <div class="header">
+            <h1>📊 댓글 증강 시스템</h1>
+        </div>
+
+        <!-- 각 페이지별 콘텐츠가 들어갈 자리 -->
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

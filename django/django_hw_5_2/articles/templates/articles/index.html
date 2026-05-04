@@ -1,0 +1,9 @@
+<h1>메인 페이지</h1>
+<a href="{% url 'articles:new' %}">[CREATE]</a>
+<hr>
+<ul>
+    {% for article in articles %}
+        <li>{{ forloop.counter }}번째 글</li>
+        <p>제목 : {{ article.title }}</p>
+    {% endfor %}
+</ul>
